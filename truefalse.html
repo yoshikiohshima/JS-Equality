@@ -1,0 +1,58 @@
+<html>
+<head>
+
+<title>A table of JavaScript equlity tests (==) among confusing values</title>
+<style type="text/css">
+table.matrix{
+  border-top: 1px solid #000;
+  border-left: 1px solid #000;
+}
+table.matrix th{
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  background-color: #EEE;
+}
+table.matrix td{
+  text-align: center;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+}
+</style>
+<script type="text/javascript">
+function loader() {
+    labels = ["false", "undef",  null, "&#8221;", "0", "&#8217;0&#8242;", "&#8220;\\n&#8221;", "&#8221; &#8220;", "[]", "[0]"];
+    ary    = [ false, undefined, null, "",         0,         "0",               "\n",               " ",          [],   [0]];
+    result = '<table class="matrix" cellspacing="0" style="width: 480px;">\n<tr>';
+    for (var i = -1; i < ary.length; i++) {
+      if (i == -1) {
+        result += "<th></th>\n";
+      } else {
+        result += ("<th>" + labels[i] + "</th>\n");
+      }
+    }
+    result += '</tr>\n';
+
+    for (var j = 0; j < ary.length; j++) {
+      result += '<tr>\n';
+      result += ('<th>' + labels[j] + '</th>\n');
+      for (var i = 0; i < ary.length; i++) {
+        if ((ary[i] == ary[j]) == true) {
+          result += '<td style="color:blue">true</td>\n';
+        } else {
+          result += '<td style="color:red">false</td>\n';
+       }
+     }
+     result += '</tr>\n';
+   } 
+   result += '</table>';
+   document.getElementById('target').innerHTML = result;
+}
+</script>
+</head>
+<body onload="loader()">
+<div id="target" style="position: absolute; border: 1px solid black">
+Table
+</div>
+</body>
+</html>
+
