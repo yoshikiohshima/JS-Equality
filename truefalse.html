@@ -22,6 +22,7 @@ table.matrix td{
 function loader() {
     labels = ["false", "undef",  null, "&#8220;&#8221;", "0", "&#8220;0&#8221;", "&#8220;\\n&#8221;", "&#8220; &#8221;", "[]", "[0]"];
     ary    = [ false, undefined, null,        "",         0,         "0",               "\n",               " ",          [],   [0]];
+    ary2   = [ false, undefined, null,        "",         0,         "0",               "\n",               " ",          [],   [0]];
     result = '<table class="matrix" cellspacing="0" style="width: 480px;">\n<tr>';
     for (var i = -1; i < ary.length; i++) {
       if (i == -1) {
@@ -36,7 +37,7 @@ function loader() {
       result += '<tr>\n';
       result += ('<th>' + labels[j] + '</th>\n');
       for (var i = 0; i < ary.length; i++) {
-        if ((ary[i] == ary[j]) == true) {
+        if ((ary[i] == ary2[j]) == true) {
           result += '<td style="color:blue">true</td>\n';
         } else {
           result += '<td style="color:red">false</td>\n';
@@ -61,7 +62,7 @@ function loader() {
      result += '<tr>\n';
      result += ('<th>' + labels[j] + '</th>\n');
      for (var i = 0; i < ary.length; i++) {
-       if ((ary[i] === ary[j]) == true) {
+       if ((ary[i] === ary2[j]) == true) {
          result += '<td style="color:blue">true</td>\n';
        } else {
          result += '<td style="color:red">false</td>\n';
@@ -83,8 +84,10 @@ Mr. Naohiko Mori</a>, I added two more rows and columns for an empty array ("[]"
 Table
 </div>
 <hr>
-And just for comparison, here is the table with results from the identity test (===).
-<div id="target2">
+<div style="width: 550px">
+And just for comparison, here is the table with results from the identity test (===).  Note that for arrays, left hand side and right hand side are different instances.  If they are the same instance, the results are true (this is true for both ways of testing).
+</div>
+<div id="target2" >
 Table
 </div>
 </body>
