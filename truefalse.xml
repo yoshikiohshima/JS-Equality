@@ -1,21 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="JavaScript equality" height="350"/>
+  <Content type="html">
+    <![CDATA[
 <html>
 <head>
-
-<title>JavaScript equlity tests (==) among confusing values</title>
 <style type="text/css">
 table.matrix{
   border-top: 1px solid #000;
   border-left: 1px solid #000;
+  font-size: xx-small
 }
 table.matrix th{
   border-right: 1px solid #CCC;
   border-bottom: 1px solid #CCC;
   background-color: #EEE;
+  font-size: xx-small
 }
 table.matrix td{
   text-align: center;
   border-right: 1px solid #CCC;
   border-bottom: 1px solid #CCC;
+  font-size: xx-small
 }
 </style>
 <script type="text/javascript">
@@ -25,7 +31,7 @@ function loader() {
   ary2   = [ false, undefined, null,        "",         0,         "0",               "\n",               " ",          [],   [0]];
 
   function makeTable(op) {
-    var result = '<table class="matrix" cellspacing="0" style="width: 480px;">\n<tr>';
+    var result = '<table class="matrix" cellspacing="0" style="width: 380px;">\n<tr>';
     for (var i = -1; i < ary.length; i++) {
       if (i == -1) {
         result += "<th>"+op+"</th>\n";
@@ -56,22 +62,16 @@ function loader() {
 }
 </script>
 </head>
+</head>
 <body onload="loader()">
-<div style="width: 550px">
-The equality test (==) in JavaScript is notoriously confusing.  Based on <a href="http://bit.ly/dI4BsA">a table by 
-Mr. Naohiko Mori</a>, I added two more rows and columns for an empty array ("[]") and an array with zero in it ("[0]").
-</div>
 <div id="target">
 Table
-</div>
-<hr>
-<div style="width: 550px">
-And just for comparison, here is the table with results from the more strict test (===).  Note that for arrays, left hand side and right hand side are different instances.  If they are the same instance, the results are true (this is true for both ways of testing).
 </div>
 <div id="target2" >
 Table
 </div>
-<hr>
-Source code is available at: <a href="https://github.com/yoshikiohshima/JS-Equality">https://github.com/yoshikiohshima/JS-Equality</a>
 </body>
 </html>
+    ]]>
+</Content>
+</Module>
